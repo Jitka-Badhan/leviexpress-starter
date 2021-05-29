@@ -5,7 +5,6 @@ import { SeatRow } from '../SeatRow';
 import './style.css';
 
 export const SeatPicker = ({journey}) => {
-  console.log(journey);
   const seats = journey.seats;
 
   const [selectedSeatNumber, setSelectedSeatNumber] = useState(null);
