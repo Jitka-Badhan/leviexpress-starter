@@ -7,9 +7,10 @@ import { Home } from '../Home';
 
 export const App = () => (
   <>
+  <Router>
+
     <Header />
 
-    <Router>
       <Switch>
         <Route exact path="/">
           <Home />
@@ -18,8 +19,9 @@ export const App = () => (
           <h2>Detail jízdenky</h2>
         </Route>
       </Switch>
-    </Router>
 
     <Footer />
+    
+  </Router>
   </>
 );

@@ -6,7 +6,7 @@ const CityOptions = ({cities}) => (
     <>
       <option value="">Vyberte</option>
       { cities.map(
-        city => <option key={city.code} value={city.name}>{city.name}</option>)
+        city => <option key={city.code} value={city.code}>{city.name}</option>)
       }
     </>
   )
@@ -30,6 +30,10 @@ export const JourneyPicker = ({ onJourneyChange }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(fromCity, toCity, date);
+
+    fetch(`https://leviexpress-backend.herokuapp.com/api/journey?fromCity=${fromCity}&toCity=${toCity}&date=${date}`)
+      .then(response => response.json())
+      .then(json => onJourneyChange(json.data));
   };
 
   useEffect( () => {
@@ -65,7 +69,7 @@ export const JourneyPicker = ({ onJourneyChange }) => {
             </select>
           </label>
           <div className="journey-picker__controls">
-            <button className="btn" type="submit" onClick={handleSubmit}>
+            <button className="btn" type="submit" onClick={handleSubmit} disabled={toCity && fromCity && date ? false : true}>
               Vyhledat spoj
             </button>
           </div>
