@@ -4,6 +4,7 @@ import { BusStop } from '../BusStop';
 import './style.css';
 
 export const JourneyDetail = ({journey}) => {
+  // console.log(journey);
   const stops = journey.stops;
 
   return (

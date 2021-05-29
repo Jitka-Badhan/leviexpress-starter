@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { JourneyPicker } from '../JourneyPicker';
 import { JourneyDetail } from '../JourneyDetail';
+import { SeatPicker } from '../SeatPicker';
 
 export const Home = () => {
   const [journey, setJourney] = useState(null);
@@ -12,7 +13,8 @@ export const Home = () => {
   return (
     <main>
       <JourneyPicker onJourneyChange={changeJourney}/>
-      {journey ? <JourneyDetail journey={journey}/> : null}
+      {journey ? <JourneyDetail journey={journey} /> : null}
+      {journey ? <SeatPicker journey={journey} /> : null}
     </main>
   )
 };
